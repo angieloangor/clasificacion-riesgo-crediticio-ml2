@@ -177,7 +177,7 @@ def verificaciones() -> list[tuple[str, bool, str]]:
     res = []
     res.append(("El esquema tiene 23 predictores y coincide con el Pipeline",
                 len(art.columnas) == 23 and list(art.modelo.feature_names_in_) == art.columnas,
-                "artefactos/esquema.json vs. modelo.feature_names_in_"))
+                f"{C.RUTA_ESQUEMA.relative_to(C.RAIZ).as_posix()} vs. modelo.feature_names_in_"))
     res.append(("Categorías válidas iguales a las del OneHotEncoder",
                 all(sorted(cat_json.get(k, [])) == sorted(v) for k, v in art.categorias.items()),
                 "categorias_validas.json vs. OneHotEncoder.categories_"))

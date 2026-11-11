@@ -1,6 +1,9 @@
 # Verificaciones antes de entregar
-1. Ejecutar Streamlit en navegador y guardar captura de una predicción.
-2. Exportar del notebook la tabla de modelos ajustados y la validación anidada completa, si se exige justificar cuantitativamente el último paso de selección. La tabla CSV incluida es **comparación inicial**, no resultados anidados.
+1. Abrir Streamlit en el navegador del computador de entrega (macOS), después de la reorganización, y guardar captura de una predicción. La evidencia existente es del 10 de noviembre en Linux con Chromium (`PRUEBAS_APLICACION.txt`, `docs/capturas/`).
+2. Completado: las tablas de modelos ajustados y de validación anidada están exportadas en `resultados/reproduccion/`. La tabla `resultados/comparacion_modelos_cv.csv` es **comparación inicial**, no resultados anidados.
 3. Revisar si el docente exige nombres oficiales, fichas técnicas o referencias completas de la Encuesta Integradora y de Pensiones y Parafiscales; documentar exactamente qué campos inspiraron la simulación. No se adjuntaron microdatos originales.
 4. Preparar sustentación de ambos integrantes.
-5. Verificar que el informe cumpla la extensión formal exigida por el profesor.
+5. Verificar que el informe cumpla la extensión formal exigida por el profesor. El PDF actual tiene 4 páginas.
+6. Actualizar en el informe, si se regenera el PDF, dos frases ya superadas: la sección 4 dice que las tablas anidadas y de modelos ajustados deben exportarse, y la sección 7 dice que la comprobación en navegador requiere evidencia local.
+7. Regenerar `Proyecto_ML2_Prisma.zip` si se va a usar para la entrega, porque conserva la estructura anterior con `artefactos/`.
+8. Si se quiere comprobar el notebook con las rutas nuevas, ejecutarlo sobre una copia del proyecto, ya que sobrescribe archivos de `data/` y `models/`.

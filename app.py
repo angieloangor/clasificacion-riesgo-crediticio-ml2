@@ -10,7 +10,7 @@ st.set_page_config(page_title="Prisma · Riesgo crediticio sintético", page_ico
                    layout="wide", initial_sidebar_state="auto")
 
 from prisma_app import componentes as ui  # noqa: E402
-from prisma_app import estado, estilos  # noqa: E402
+from prisma_app import config, estado, estilos  # noqa: E402
 
 estilos.aplicar()
 ui.marca_lateral()
@@ -19,7 +19,8 @@ try:
     estado.iniciar()
 except FileNotFoundError as exc:
     st.error(f"No se encontró un archivo necesario: `{exc.filename}`. Ejecuta la app desde la carpeta "
-             "del proyecto y verifica que existan `artefactos/` y `dataset_credit_score_colombia.csv`.")
+             f"del proyecto y verifica que existan `{config.ARTEFACTOS.relative_to(config.RAIZ).as_posix()}/` "
+             f"y `{config.RUTA_DATASET.relative_to(config.RAIZ).as_posix()}`.")
     st.stop()
 
 paginas = {

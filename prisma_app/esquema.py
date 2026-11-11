@@ -1,6 +1,6 @@
 """Metadatos de las 23 variables predictoras.
 
-Los nombres de columna son EXACTAMENTE los de `artefactos/esquema.json`.
+Los nombres de columna son EXACTAMENTE los de `models/esquema.json`.
 Aquí solo se añaden etiquetas legibles, unidades, ayudas y el grupo del formulario;
 los rangos y valores iniciales se derivan de los datos (ver datos.py).
 """
