@@ -195,5 +195,5 @@ def verificaciones() -> list[tuple[str, bool, str]]:
     guardada = matriz_guardada()
     res.append(("Matriz de confusión recalculada = matriz guardada",
                 guardada is not None and (guardada.loc[C.ORDEN_CLASES, C.ORDEN_CLASES].values == m["matriz"].values).all(),
-                "matriz_confusion_final.csv"))
+                C.RUTA_MATRIZ.relative_to(C.RAIZ).as_posix()))
     return res

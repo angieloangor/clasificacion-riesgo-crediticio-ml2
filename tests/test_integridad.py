@@ -83,7 +83,7 @@ def test_prediccion_de_ejemplo_igual_a_la_registrada(art):
     ej = json.loads(C.RUTA_EJEMPLO.read_text(encoding="utf-8"))[0]
     x = preparar_entrada(ej, art.columnas, datos.tipos_columnas())
     r = prediccion.predecir(art, x).iloc[0]
-    # PRUEBAS_APLICACION.txt: Poor, {Good 0.17896, Poor 0.49462, Standard 0.32642}
+    # docs/PRUEBAS_APLICACION.txt: Poor, {Good 0.17896, Poor 0.49462, Standard 0.32642}
     assert r["Clase_predicha"] == "Poor"
     assert r["Prob_Good"] == pytest.approx(0.17896, abs=1e-5)
     assert r["Prob_Poor"] == pytest.approx(0.49462, abs=1e-5)

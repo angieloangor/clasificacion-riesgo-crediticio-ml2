@@ -37,7 +37,7 @@ with t_imp:
                  f"{23 - len(pos)} variables con valor ≤ 0 no muestran aporte medible: su permutación no empeora "
                  "(o mejora levemente, dentro del ruido) el desempeño. Con predictores correlacionados la "
                  "importancia se reparte entre ellos, así que no debe leerse como efecto causal.")
-        archivo = "interpretabilidad_importancias.csv" if ver == "5rep" else "resultados/reproduccion/importancia_permutacion_10rep.csv"
+        archivo = "resultados/interpretabilidad_importancias.csv" if ver == "5rep" else "resultados/reproduccion/importancia_permutacion_10rep.csv"
         ui.fuente(f"Fuente: <code>{archivo}</code> · scoring = F1 macro sobre las 1.000 filas de prueba.")
 
 # ---------------- Coeficientes ----------------
@@ -105,7 +105,7 @@ with t_cm:
                  f"construcción ocupa la zona intermedia del riesgo latente. Los errores extremos son menos frecuentes: "
                  f"{cm.loc['Poor', 'Good']} perfiles Poor se predijeron Good y {cm.loc['Good', 'Poor']} Good se "
                  "predijeron Poor; el primero sería el error más costoso en un uso real.")
-    ui.fuente("Recalculada en vivo y verificada contra <code>matriz_confusion_final.csv</code>.")
+    ui.fuente("Recalculada en vivo y verificada contra <code>resultados/matriz_confusion_final.csv</code>.")
 
 # ---------------- Individual ----------------
 with t_ind:

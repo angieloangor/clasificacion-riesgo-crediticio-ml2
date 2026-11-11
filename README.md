@@ -5,6 +5,24 @@ Prisma es la aplicación Streamlit del proyecto: clasifica perfiles crediticios 
 
 > Prototipo académico. Datos y etiquetas sintéticos: no sirve para aprobar o negar créditos reales.
 
+**Objetivo académico:** comparar enfoques de clasificación de distinta complejidad y evaluar si las señales financieras, laborales y de comportamiento de 5.000 perfiles sintéticos, descritos por 23 variables predictoras, permiten recuperar una etiqueta sintética bajo un procedimiento reproducible.
+
+## Guía para evaluadores
+
+| Qué revisar | Dónde |
+|---|---|
+| Notebook de entrenamiento | [notebooks/](notebooks/) |
+| Notebook ejecutado, con salidas | [notebook_reejecutado_con_salidas.ipynb](resultados/reproduccion/notebook_reejecutado_con_salidas.ipynb) |
+| Informe final | [reports/INFORME_FINAL_ML2.pdf](reports/INFORME_FINAL_ML2.pdf) |
+| Datasets y modelos | [data/](data/) y [models/](models/) |
+| Las 23 variables predictoras | [docs/DOCUMENTACION_23_VARIABLES.md](docs/DOCUMENTACION_23_VARIABLES.md) |
+| Métricas verificadas | [docs/RESULTADOS_VERIFICADOS.md](docs/RESULTADOS_VERIFICADOS.md) |
+| Tablas y figuras de resultados | [resultados/](resultados/) |
+| Registro de pruebas de la aplicación | [docs/PRUEBAS_APLICACION.txt](docs/PRUEBAS_APLICACION.txt) |
+| Estado de cada tipo de verificación | [docs/ESTADO_VERIFICACION.md](docs/ESTADO_VERIFICACION.md) |
+| Reproducibilidad y procedencia de los archivos | [resultados/reproduccion/REPRODUCCION.md](resultados/reproduccion/REPRODUCCION.md) |
+| Capturas de la aplicación | [docs/capturas/](docs/capturas/) |
+
 ## Instalación y ejecución
 
 Todos los comandos se ejecutan desde la raíz del repositorio, con Python 3.11 – 3.14.
@@ -95,11 +113,8 @@ static/                    Logo y fuentes Sora e Instrument Sans (licencia SIL O
 .streamlit/config.toml     Tema y servicio de archivos estáticos
 tests/test_integridad.py   Pruebas de integridad y de ejecución de cada página
 resultados/reproduccion/   Tablas que el notebook calcula pero no había exportado (ver abajo)
-docs/capturas/             Capturas de la aplicación
-legacy/app_original.py     Versión anterior de la app, como referencia
+docs/                      Documentación de variables, registros de verificación y capturas
 ```
-
-Dos tablas de resultados permanecen en la raíz porque la aplicación las lee desde allí: `interpretabilidad_importancias.csv` y `matriz_confusion_final.csv`. La documentación de las 23 variables predictoras está en `DOCUMENTACION_23_VARIABLES.md`, las métricas verificadas en `RESULTADOS_VERIFICADOS.md` y el registro de pruebas en `PRUEBAS_APLICACION.txt`.
 
 ## Integridad técnica
 
@@ -119,6 +134,10 @@ Dos tablas de resultados permanecen en la raíz porque la aplicación las lee de
 El notebook entregado no conservaba salidas y el proyecto no incluía las tablas de ajuste de hiperparámetros ni de validación anidada. Se re-ejecutó una copia del notebook con las versiones de `requirements.txt`; el dataset y el modelo regenerados son **idénticos byte a byte** a los entregados. Las tablas están en `resultados/reproduccion/` y el procedimiento en `resultados/reproduccion/REPRODUCCION.md`.
 
 Esa re-ejecución es anterior a la reorganización de carpetas y el notebook no se ha vuelto a ejecutar desde entonces. Las pruebas automatizadas verifican el software y la coherencia de los artefactos existentes, pero no constituyen una nueva reproducción del entrenamiento.
+
+### Limitaciones de reproducibilidad
+
+El notebook principal regenera únicamente los dos archivos del dataset y los cuatro de `models/`. Otros artefactos que usa la aplicación o que sirven de evidencia no tienen un procedimiento de generación automatizado en el repositorio, por lo que deben conservarse. El detalle por archivo está en la sección "Procedencia y regeneración de artefactos" de [REPRODUCCION.md](resultados/reproduccion/REPRODUCCION.md).
 
 ## Historial del proyecto
 

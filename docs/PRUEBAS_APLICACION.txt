@@ -2,7 +2,7 @@ PRUEBAS DE LA APLICACIÓN PRISMA — 10 de noviembre de 2026
 Entorno: Linux, Python 3.13, numpy 2.3.5, pandas 2.2.3, scipy 1.17.0, scikit-learn 1.8.0,
 streamlit 1.67.0, plotly 7.1.0, Chromium (Playwright).
 En esta sesión NO se probó en el computador de entrega (macOS). pytest se repitió allí después
-(sección 3); falta abrir la app en ese computador.
+(sección 3) y el equipo hizo una prueba manual de tres páginas en macOS (sección 4).
 
 1) Pruebas automáticas (python -m pytest -q)
 test_modelo_carga_y_es_regresion_logistica  OK
@@ -58,3 +58,14 @@ scikit-learn 1.8.0, streamlit 1.67.0, plotly 7.1.0, pytest 9.2.0.
 Resultado de python -m pytest -q: 27 passed.
 Alcance: solo pytest. No se repitieron las pruebas en navegador, no se ejecutó el notebook
 y no se reentrenó el modelo.
+
+4) Prueba manual en macOS realizada por el equipo (10 de noviembre de 2026)
+Entorno: macOS, Google Chrome, Streamlit en localhost:8501.
+Evidencia: observación mediante capturas de pantalla.
+- Inicio: carga correcta, métricas visibles y predicción inicial.
+- Simulador: formulario visible, variables editables y botón de clasificación.
+- Resultado: clasificación Good; probabilidades Good 38,02 %, Standard 36,09 % y Poor 25,89 %.
+Alcance: solo estas tres páginas. Comparar perfiles, Predicción por lotes, Interpretabilidad,
+Comparación de modelos y Metodología no formaron parte de esta prueba manual.
+Es independiente de las 27 pruebas automatizadas de pytest (secciones 1 y 3).
+No se ejecutó el notebook ni se reentrenó el modelo.

@@ -83,7 +83,7 @@ with tabs[2]:
     st.dataframe(pd.DataFrame(filas), hide_index=True, width="stretch", height=560,
                  column_config={"Peso en la etiqueta": st.column_config.NumberColumn(format="%+.4f")})
     ui.fuente("Pesos de la celda <code>PESOS_FICO_CO</code> del notebook. Documentación ampliada en "
-              "<code>DOCUMENTACION_23_VARIABLES.md</code>.")
+              "<code>docs/DOCUMENTACION_23_VARIABLES.md</code>.")
 
 with tabs[3]:
     ui.seccion("Preprocesamiento")

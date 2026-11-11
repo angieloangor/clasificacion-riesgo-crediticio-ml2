@@ -1,5 +1,5 @@
 # Verificaciones antes de entregar
-1. Abrir Streamlit en el navegador del computador de entrega (macOS), después de la reorganización, y guardar captura de una predicción. La evidencia existente es del 10 de noviembre en Linux con Chromium (`PRUEBAS_APLICACION.txt`, `docs/capturas/`).
+1. Prueba local en macOS: Inicio, Simulador y Resultado verificados manualmente por el equipo el 10 de noviembre, con Google Chrome (`docs/PRUEBAS_APLICACION.txt`, sección 4). Las otras cinco páginas no formaron parte de esa prueba manual; su evidencia en navegador es la del 10 de noviembre en Linux con Chromium (`docs/PRUEBAS_APLICACION.txt`, sección 2, y `docs/capturas/`).
 2. Completado: las tablas de modelos ajustados y de validación anidada están exportadas en `resultados/reproduccion/`. La tabla `resultados/comparacion_modelos_cv.csv` es **comparación inicial**, no resultados anidados.
 3. Revisar si el docente exige nombres oficiales, fichas técnicas o referencias completas de la Encuesta Integradora y de Pensiones y Parafiscales; documentar exactamente qué campos inspiraron la simulación. No se adjuntaron microdatos originales.
 4. Preparar sustentación de ambos integrantes.

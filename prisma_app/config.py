@@ -40,8 +40,8 @@ RUTA_DATASET = DATOS / "dataset_credit_score_colombia.csv"
 # 4. RESULTADOS Y EVALUACIÓN
 # ============================================================
 
-RUTA_IMPORTANCIAS = RAIZ / "interpretabilidad_importancias.csv"
-RUTA_MATRIZ = RAIZ / "matriz_confusion_final.csv"
+RUTA_IMPORTANCIAS = RESULTADOS / "interpretabilidad_importancias.csv"
+RUTA_MATRIZ = RESULTADOS / "matriz_confusion_final.csv"
 RUTA_CV = RESULTADOS / "comparacion_modelos_cv.csv"
 RUTA_PDP = RESULTADOS / "dependencia_parcial_datos.json"
 
