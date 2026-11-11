@@ -75,6 +75,10 @@ legacy/app_original.py     Versión anterior de la app, como referencia
 
 El notebook entregado no conservaba salidas y el proyecto no incluía las tablas de ajuste de hiperparámetros ni de validación anidada. Se re-ejecutó una copia del notebook con las versiones de `requirements.txt`; el dataset y el modelo regenerados son **idénticos byte a byte** a los entregados. Las tablas están en `resultados/reproduccion/` y el procedimiento en `resultados/reproduccion/REPRODUCCION.md`.
 
+## Segunda entrega
+
+La carpeta `segunda_entrega/` conserva el notebook, el informe y el dataset de la entrega anterior. Ese dataset se generó con una ponderación distinta de la etiqueta, por eso sus métricas (F1 macro ≈ 0,481) no son comparables con las de la entrega final (F1 macro 0,4526). El modelo y la aplicación usan el dataset de la raíz.
+
 ## Fuentes
 - FICO, What's in your credit score: https://www.myfico.com/credit-education/whats-in-your-credit-score
 - Gutiérrez-Rueda, Estrada y Capera (2011): https://doi.org/10.32468/tef.61
