@@ -1,16 +1,32 @@
 # Prisma — Clasificación crediticia sintética colombiana
 **Machine Learning II · Nicolás Barrera y Angie Loango**
 
+### Aplicación en línea: **[prisma-riesgo-crediticio.streamlit.app](https://prisma-riesgo-crediticio.streamlit.app/)**
+
 Prisma es la aplicación Streamlit del proyecto: clasifica perfiles crediticios **sintéticos** en `Good`, `Standard` o `Poor` con una regresión logística regularizada (`C = 0.001`) dentro de un Pipeline de scikit-learn. Permite simular perfiles, ver probabilidades y explicaciones, predecir por lotes y revisar la metodología y los resultados del notebook.
 
 > Prototipo académico. Datos y etiquetas sintéticos: no sirve para aprobar o negar créditos reales.
 
 **Objetivo académico:** comparar enfoques de clasificación de distinta complejidad y evaluar si las señales financieras, laborales y de comportamiento de 5.000 perfiles sintéticos, descritos por 23 variables predictoras, permiten recuperar una etiqueta sintética bajo un procedimiento reproducible.
 
+## Aplicación desplegada
+
+La versión pública de Prisma está en **https://prisma-riesgo-crediticio.streamlit.app/** y se puede usar desde el navegador, sin instalar nada. La aplicación carga el Pipeline serializado `models/modelo_credito.joblib` y muestra las probabilidades tal como las devuelve `predict_proba`.
+
+Desde la aplicación se puede:
+
+- consultar las cifras del proyecto y explorar el dataset por clase (**Inicio**);
+- describir un perfil con las 23 variables y obtener su clasificación (**Simulador** y **Resultado**);
+- comparar dos perfiles o clasificar un CSV completo (**Comparar perfiles** y **Predicción por lotes**);
+- revisar cómo funciona el modelo, cómo se eligió y cómo se construyeron los datos (**Interpretabilidad**, **Comparación de modelos** y **Metodología**).
+
+El 11 de noviembre de 2026 el equipo confirmó manualmente que funcionan las ocho secciones (registro en [docs/ESTADO_VERIFICACION.md](docs/ESTADO_VERIFICACION.md)). Si la aplicación lleva tiempo sin visitas, Streamlit puede mostrar primero un botón para reactivarla; tarda unos segundos en cargar.
+
 ## Guía para evaluadores
 
 | Qué revisar | Dónde |
 |---|---|
+| Aplicación en línea | [prisma-riesgo-crediticio.streamlit.app](https://prisma-riesgo-crediticio.streamlit.app/) |
 | Notebook de entrenamiento | [notebooks/](notebooks/) |
 | Notebook ejecutado, con salidas | [notebook_reejecutado_con_salidas.ipynb](resultados/reproduccion/notebook_reejecutado_con_salidas.ipynb) |
 | Informe final | [reports/INFORME_FINAL_ML2.pdf](reports/INFORME_FINAL_ML2.pdf) |
@@ -146,4 +162,6 @@ El notebook principal regenera únicamente los dos archivos del dataset y los cu
 - Gutiérrez-Rueda, Estrada y Capera (2011): https://doi.org/10.32468/tef.61
 - Koshti, Molia y Varia (2025): https://www.ijsat.org/research-paper.php?id=4759
 
-Declaración de IA: se utilizó inteligencia artificial generativa como herramienta de apoyo en el desarrollo del proyecto.
+## Declaración de uso de inteligencia artificial
+
+Durante el desarrollo de Prisma se utilizaron herramientas de inteligencia artificial generativa como apoyo en el diseño visual de la aplicación, la organización de contenidos, la redacción de la documentación y la presentación de resultados. Su uso fue complementario al trabajo del equipo: la construcción del dataset, la selección del modelo, la interpretación de las métricas y las decisiones técnicas son responsabilidad de Nicolás Barrera y Angie Loango, quienes deben comprenderlas y sustentarlas.

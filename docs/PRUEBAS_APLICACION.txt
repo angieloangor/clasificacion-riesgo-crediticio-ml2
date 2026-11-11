@@ -3,6 +3,8 @@ Entorno: Linux, Python 3.13, numpy 2.3.5, pandas 2.2.3, scipy 1.17.0, scikit-lea
 streamlit 1.67.0, plotly 7.1.0, Chromium (Playwright).
 En esta sesión NO se probó en el computador de entrega (macOS). pytest se repitió allí después
 (sección 3) y el equipo hizo una prueba manual de tres páginas en macOS (sección 4).
+El 11 de noviembre el equipo confirmó manualmente las ocho secciones (sección 5) y pytest se
+ejecutó de nuevo antes de la entrega final (sección 6).
 
 1) Pruebas automáticas (python -m pytest -q)
 test_modelo_carga_y_es_regresion_logistica  OK
@@ -69,3 +71,31 @@ Alcance: solo estas tres páginas. Comparar perfiles, Predicción por lotes, Int
 Comparación de modelos y Metodología no formaron parte de esta prueba manual.
 Es independiente de las 27 pruebas automatizadas de pytest (secciones 1 y 3).
 No se ejecutó el notebook ni se reentrenó el modelo.
+
+5) Revisión manual de las ocho secciones, reportada por el equipo (11 de noviembre de 2026)
+Tipo: revisión manual. NO es una prueba automatizada.
+Fuente: confirmación del equipo. No se adjuntaron capturas ni registros de esta revisión, y el
+reporte no detalla los pasos ejecutados en cada sección.
+Resultado reportado: funcionan las ocho secciones de Prisma.
+- Inicio
+- Simulador
+- Resultado
+- Comparar perfiles
+- Predicción por lotes
+- Interpretabilidad
+- Comparación de modelos
+- Metodología
+Aplicación publicada: https://prisma-riesgo-crediticio.streamlit.app/
+Al preparar este registro no fue posible consultar esa URL de forma automática (el sitio bloquea
+accesos automatizados); no se agregó ninguna comprobación propia del despliegue.
+No se ejecutó el notebook ni se reentrenó el modelo.
+
+6) pytest antes de la entrega final (11 de noviembre de 2026)
+Entorno: Linux, Python 3.13.18, numpy 2.3.5, pandas 2.2.3, scipy 1.17.0, scikit-learn 1.8.0,
+streamlit 1.67.0, plotly 7.1.0, pytest 9.2.0.
+Código probado: rama organizacion-final, commit b8ce44f (los cambios de esta entrega solo tocan
+documentación y el PDF del informe, no el código).
+Comando: python -m pytest -q
+Resultado: 27 passed in 9.00s
+Alcance: solo pytest. No se ejecutó en macOS ese día, no se ejecutó el notebook y no se
+reentrenó el modelo.
