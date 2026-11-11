@@ -1,0 +1,52 @@
+PRUEBAS DE LA APLICACIÓN PRISMA — 10 de noviembre de 2026
+Entorno: Linux, Python 3.13, numpy 2.3.5, pandas 2.2.3, scipy 1.17.0, scikit-learn 1.8.0,
+streamlit 1.67.0, plotly 7.1.0, Chromium (Playwright).
+NO se probó en el computador de entrega (macOS): repetir allí "python -m pytest -q" y abrir la app.
+
+1) Pruebas automáticas (python -m pytest -q)
+test_modelo_carga_y_es_regresion_logistica  OK
+test_23_variables_coinciden_con_el_pipeline  OK
+test_metadatos_y_grupos_cubren_las_23_variables_una_vez  OK
+test_categorias_validas_iguales_al_entrenamiento  OK
+test_dtypes_de_entrada_iguales_al_dataset  OK
+test_correspondencia_indice_clase_del_codificador  OK
+test_prediccion_de_ejemplo_igual_a_la_registrada  OK
+test_probabilidades_suman_uno_y_son_las_de_predict_proba  OK
+test_particion_reproducida  OK
+test_metricas_y_matriz_iguales_a_las_reportadas  OK
+test_verificaciones_en_vivo_pasan  OK
+test_archivos_de_resultados_consistentes  OK
+test_dependencia_parcial_en_vivo_igual_a_la_guardada  OK
+test_explicacion_individual_reproduce_el_logit  OK
+test_coeficientes_suman_cero_entre_clases  OK
+test_reglas_de_coherencia_se_cumplen_en_todo_el_dataset  OK
+test_formulas_derivadas_iguales_al_notebook  OK
+test_validacion_detecta_entradas_invalidas  OK
+test_lote_con_columnas_faltantes_y_filas_invalidas  OK
+test_paginas_se_ejecutan_sin_errores[inicio]  OK
+test_paginas_se_ejecutan_sin_errores[simulador]  OK
+test_paginas_se_ejecutan_sin_errores[resultado]  OK
+test_paginas_se_ejecutan_sin_errores[comparar]  OK
+test_paginas_se_ejecutan_sin_errores[lotes]  OK
+test_paginas_se_ejecutan_sin_errores[interpretabilidad]  OK
+test_paginas_se_ejecutan_sin_errores[modelos]  OK
+test_paginas_se_ejecutan_sin_errores[metodologia]  OK
+============================== 27 passed in 5.13s ==============================
+
+2) Pruebas en navegador (Chromium, escritorio 1440 px y móvil 390 px)
+- Las 8 páginas cargan sin excepciones.
+- Simulador: cargar registro #3, cambiar de sección, calcular -> página de resultado.
+  Probabilidades mostradas = predict_proba directo (Good 0.343744, Standard 0.383249, Poor 0.273007).
+- Error corregido durante las pruebas: al cargar otro perfil, los campos visibles reenviaban
+  el valor anterior. Solución: claves de widgets versionadas (prisma_app/estado.py).
+- Apagar "Tiene tarjeta" -> 3 advertencias de coherencia; "Corregir" -> perfil coherente.
+- Restablecer y carga aleatoria por clase: correctos.
+- Descarga del resumen HTML: correcta.
+- Comparar perfiles: correcto.
+- Lote de 40 filas con 2 filas inválidas (categoría inexistente, edad 120) y 1 incoherente:
+  38 evaluadas, 2 con error, 1 con advertencia.
+- Interpretabilidad: las 5 pestañas cargan; dependencia parcial coincide con el JSON guardado.
+- Metodología > Verificaciones: 7 correctas, 0 fallas.
+- Móvil (390 px): sin desplazamiento horizontal.
+
+Capturas: docs/capturas/

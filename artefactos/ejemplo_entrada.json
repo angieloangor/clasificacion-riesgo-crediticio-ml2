@@ -1,0 +1,27 @@
+[
+  {
+    "Edad":30,
+    "Tipo_Ocupacion":"Cuenta propia",
+    "Formalidad_Laboral":"Informal",
+    "Antiguedad_Laboral_Meses":57,
+    "Ingreso_Mensual":1682000.0,
+    "Variabilidad_Ingreso":0.717,
+    "Tipo_Cotizante":"Sin cotizacion",
+    "Meses_Cotizados_12M":0,
+    "IBC_Aproximado":0.0,
+    "Antiguedad_Crediticia_Meses":91,
+    "Numero_Productos_Financieros":2,
+    "Numero_Prestamos":2,
+    "Tiene_Tarjeta_Credito":0,
+    "Limite_Tarjeta":0.0,
+    "Saldo_Tarjeta":0.0,
+    "Utilizacion_Credito":0.0,
+    "Deuda_Pendiente":2525000.0,
+    "Ratio_Deuda_Ingreso":0.125,
+    "Comportamiento_Pago_Tarjeta":"No aplica",
+    "Monto_Pagado_Tarjeta":0.0,
+    "Numero_Retrasos_12M":3,
+    "Dias_Mora_Promedio":27.7,
+    "Consultas_Credito_6M":1
+  }
+]

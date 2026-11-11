@@ -1,0 +1,7 @@
+Modelo,Mejor_F1_macro_CV,Mejores_parametros
+Logistic Regression,0.46088360265076816,"{""C"": 0.001}"
+Random Forest,0.45396906355585803,"{""max_depth"": 8, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3, ""n_estimators"": 100}"
+SVM,0.45331712357921244,"{""C"": 0.5, ""gamma"": ""auto""}"
+AdaBoost,0.4503283594269145,"{""learning_rate"": 0.3, ""n_estimators"": 100}"
+Gradient Boosting,0.44254588343137646,"{""learning_rate"": 0.03, ""max_depth"": 2, ""n_estimators"": 100}"
+XGBoost,0.4399019240109394,"{""colsample_bytree"": 0.8, ""learning_rate"": 0.03, ""max_depth"": 2, ""n_estimators"": 100, ""subsample"": 0.8}"

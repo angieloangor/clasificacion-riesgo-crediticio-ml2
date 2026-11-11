@@ -1,0 +1,27 @@
+{
+  "Tipo_Ocupacion": [
+    "Cuenta propia",
+    "Dependiente",
+    "Desempleado",
+    "Independiente",
+    "Pensionado"
+  ],
+  "Formalidad_Laboral": [
+    "Formal",
+    "Informal",
+    "No aplica"
+  ],
+  "Tipo_Cotizante": [
+    "Dependiente",
+    "Independiente",
+    "Pensionado",
+    "Sin cotizacion"
+  ],
+  "Comportamiento_Pago_Tarjeta": [
+    "No aplica",
+    "Pago irregular",
+    "Pago mínimo",
+    "Pago superior al mínimo",
+    "Pago total"
+  ]
+}

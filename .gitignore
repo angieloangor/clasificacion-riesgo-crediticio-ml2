@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+.env
+*.pyc
+.DS_Store
+
+# Copia comprimida para entrega (no se versiona)
+*.zip
+# Ilustración que ya no se usa
+static/prisma_haz.svg

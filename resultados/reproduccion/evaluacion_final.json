@@ -1,0 +1,66 @@
+{
+  "modelo_final": "Logistic Regression",
+  "params_finales": {
+    "C": 0.001,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 3000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": 42,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "accuracy": 0.452,
+  "precision_macro": 0.45369411373817153,
+  "recall_macro": 0.45306356758185484,
+  "f1_macro": 0.4526102506370134,
+  "ic95_f1_bootstrap": [
+    0.4218993029435339,
+    0.48569474804996343
+  ],
+  "oraculo_accuracy": 0.572,
+  "oraculo_f1_macro": 0.5789605669265757,
+  "svm_log1p_f1_cv": 0.4585930655879355,
+  "svm_log1p_desv": 0.004175771566957385,
+  "reporte_clasificacion": {
+    "Good": {
+      "precision": 0.48677248677248675,
+      "recall": 0.5380116959064327,
+      "f1-score": 0.5111111111111111,
+      "support": 342.0
+    },
+    "Standard": {
+      "precision": 0.37790697674418605,
+      "recall": 0.3672316384180791,
+      "f1-score": 0.37249283667621774,
+      "support": 354.0
+    },
+    "Poor": {
+      "precision": 0.49640287769784175,
+      "recall": 0.45394736842105265,
+      "f1-score": 0.4742268041237113,
+      "support": 304.0
+    },
+    "accuracy": 0.452,
+    "macro avg": {
+      "precision": 0.45369411373817153,
+      "recall": 0.45306356758185484,
+      "f1-score": 0.4526102506370133,
+      "support": 1000.0
+    },
+    "weighted avg": {
+      "precision": 0.45116173506377616,
+      "recall": 0.452,
+      "f1-score": 0.45082741263698933,
+      "support": 1000.0
+    }
+  },
+  "python": "3.13.18",
+  "sklearn": "1.8.0"
+}
