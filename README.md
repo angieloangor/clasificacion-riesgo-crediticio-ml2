@@ -139,13 +139,6 @@ Esa re-ejecución es anterior a la reorganización de carpetas y el notebook no 
 
 El notebook principal regenera únicamente los dos archivos del dataset y los cuatro de `models/`. Otros artefactos que usa la aplicación o que sirven de evidencia no tienen un procedimiento de generación automatizado en el repositorio, por lo que deben conservarse. El detalle por archivo está en la sección "Procedencia y regeneración de artefactos" de [REPRODUCCION.md](resultados/reproduccion/REPRODUCCION.md).
 
-## Historial del proyecto
-
-El proyecto evolucionó a lo largo de distintas entregas académicas. La segunda entrega se conserva en la [rama original `main`](https://github.com/angieloangor/clasificacion-riesgo-crediticio-ml2/tree/main) del repositorio en GitHub (commit `c783e85`).
-
-La versión final se denomina **Prisma** e incorpora el modelo de clasificación, la aplicación Streamlit, las evaluaciones y la documentación técnica. El modelo y la aplicación usan `data/dataset_credit_score_colombia.csv`, y la evaluación final reporta un F1 macro de 0,4526 sobre el conjunto de prueba (`resultados/reproduccion/evaluacion_final.json`).
-
-Las métricas de diferentes entregas no deben compararse directamente sin comprobar que se utilizaron el mismo dataset, la misma variable objetivo y el mismo procedimiento de evaluación.
 
 ## Fuentes
 
