@@ -20,7 +20,7 @@ Desde la aplicación se puede:
 - comparar dos perfiles o clasificar un CSV completo (**Comparar perfiles** y **Predicción por lotes**);
 - revisar cómo funciona el modelo, cómo se eligió y cómo se construyeron los datos (**Interpretabilidad**, **Comparación de modelos** y **Metodología**).
 
-El 11 de noviembre de 2026 el equipo confirmó manualmente que funcionan las ocho secciones (registro en [docs/ESTADO_VERIFICACION.md](docs/ESTADO_VERIFICACION.md)). Si la aplicación lleva tiempo sin visitas, Streamlit puede mostrar primero un botón para reactivarla; tarda unos segundos en cargar.
+El 11 de noviembre de 2026 el equipo verificó manualmente las ocho secciones en esta versión publicada en Streamlit Community Cloud y funcionaron correctamente (registro en [docs/ESTADO_VERIFICACION.md](docs/ESTADO_VERIFICACION.md)). Si la aplicación lleva tiempo sin visitas, Streamlit puede mostrar primero un botón para reactivarla; tarda unos segundos en cargar.
 
 ## Guía para evaluadores
 
@@ -38,6 +38,24 @@ El 11 de noviembre de 2026 el equipo confirmó manualmente que funcionan las och
 | Estado de cada tipo de verificación | [docs/ESTADO_VERIFICACION.md](docs/ESTADO_VERIFICACION.md) |
 | Reproducibilidad y procedencia de los archivos | [resultados/reproduccion/REPRODUCCION.md](resultados/reproduccion/REPRODUCCION.md) |
 | Capturas de la aplicación | [docs/capturas/](docs/capturas/) |
+
+## Metodología
+
+Resumen de la metodología implementada en `notebooks/ProyectoML2_EntregaFinal_FICO_Colombia.ipynb`. Las cifras provienen de `resultados/` y de `resultados/reproduccion/`.
+
+1. **Problema.** Clasificación supervisada multiclase de perfiles crediticios en `Good`, `Standard` o `Poor`. El objetivo es comparar clasificadores de distinta complejidad y comprobar si las señales financieras, laborales y de comportamiento de pago permiten recuperar la etiqueta con un procedimiento reproducible.
+2. **Por qué datos sintéticos.** La simulación permite conocer el mecanismo exacto que genera la etiqueta, controlar sus supuestos y medir cuánto de ese mecanismo recupera el modelo, incluido un techo teórico calculado con las probabilidades verdaderas. Además, incorpora variables propias del contexto laboral colombiano (`Formalidad_Laboral`, `Tipo_Cotizante`, `Meses_Cotizados_12M`, `IBC_Aproximado`). La GEIH del DANE, la UGPP, la Superintendencia Financiera y Banca de las Oportunidades orientan la simulación como fuentes de contexto; las medias, probabilidades y límites concretos son supuestos del equipo.
+3. **Generación del dataset.** Se generan 5.000 perfiles con semilla 42 en cuatro bloques encadenados: perfil socioeconómico, cotización, historial crediticio y comportamiento financiero. La etiqueta se obtiene de un riesgo latente que pondera nueve señales normalizadas: pagos 35 %, deuda 30 %, antigüedad 15 % (protectora), consultas 10 % y estabilidad de ingresos y cotización 10 %, dividido en 6 % y 4 %. A ese riesgo se suma ruido normal (σ = 0,12) y se aplica softmax para sortear la clase. El resultado son 25 columnas sin faltantes ni duplicados y clases de tamaño similar: Good 34,2 %, Standard 35,4 % y Poor 30,4 %.
+4. **Preprocesamiento.** `Credit_Score` es la variable objetivo y `Antiguedad_Laboral_Años` se excluye por duplicar `Antiguedad_Laboral_Meses`, lo que deja 23 predictores. Un `ColumnTransformer` aplica `StandardScaler` a las 19 variables numéricas y `OneHotEncoder(handle_unknown="ignore")` a las 4 categóricas. Todo va dentro de un `Pipeline`, que se ajusta solo con los datos de entrenamiento de cada partición para evitar fuga de información. No se aplica balanceo, porque las clases tienen tamaños similares.
+5. **Entrenamiento y prueba.** Antes de cualquier ajuste se reserva un 20 % estratificado para prueba (semilla 42): 4.000 perfiles de entrenamiento y 1.000 de prueba. La prueba se usa una sola vez, en la evaluación final.
+6. **Modelos evaluados.** Los nueve clasificadores del enfoque de referencia (regresión logística, árbol de decisión, Random Forest, Gradient Boosting, XGBoost, LightGBM, SVM, AdaBoost y Naive Bayes) más un `DummyClassifier` como línea base.
+7. **Validación e hiperparámetros.** El proceso tuvo tres etapas, todas sobre el conjunto de entrenamiento:
+   - Comparación inicial con validación cruzada estratificada de 3 folds.
+   - `GridSearchCV` de 3 folds sobre seis modelos.
+   - Validación cruzada anidada (3 folds externos × 2 internos) de los dos mejores, para estimar el desempeño sin el sesgo de elegir hiperparámetros con los mismos datos.
+8. **Métricas.** La métrica principal es F1 macro, porque pondera por igual las tres clases y no deja que el promedio oculte el bajo desempeño de `Standard`, la clase intermedia y más difícil. Como complemento se reportan accuracy, precisión y recall macro, métricas por clase, matriz de confusión e intervalo bootstrap del 95 % (1.000 remuestreos).
+9. **Selección de la regresión logística.** Regla del notebook: se elige la regresión logística si su F1 anidado queda a 0,01 o menos del mejor finalista. Obtuvo el mejor F1 anidado (0,4619 ± 0,0057, frente a 0,4544 de Random Forest) y es el modelo más simple e interpretable. Usa `C = 0,001`, con regularización fuerte. En prueba alcanzó F1 macro 0,4526 (IC 95 %: 0,422–0,486) y accuracy 0,452, muy por encima de la línea base (F1 macro 0,174 en la validación cruzada inicial).
+10. **Interpretabilidad, limitaciones y alcance.** La interpretación usa importancia por permutación, coeficientes, dependencia parcial y una explicación individual exacta del logit. Son descripciones del modelo, no efectos causales. Los datos y la etiqueta son sintéticos, los pesos y parámetros son supuestos del equipo y no hay calibración ni validación con datos reales. El F1 refleja la recuperación de etiquetas simuladas: incluso un oráculo con las probabilidades verdaderas obtiene 0,579. Prisma no debe usarse para aprobar o negar créditos.
 
 ## Instalación y ejecución
 

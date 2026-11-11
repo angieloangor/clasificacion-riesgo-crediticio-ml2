@@ -20,9 +20,9 @@ El desempeño es moderado y no permite uso en decisiones de crédito reales. El 
 
 El F1 macro de 0.481 pertenece a la segunda entrega, conservada en la rama `main` de GitHub (commit `c783e85`). Esa entrega usó otra ponderación de la etiqueta y su dataset difiere del actual en 502 de las 5.000 etiquetas, por lo que esa cifra no es comparable con el 0.4526 de esta versión.
 
-## Pendiente para cierre académico
+## Estado del cierre académico (11 de noviembre de 2026)
 
-1. Revisar manualmente las gráficas, matriz de confusión y explicaciones para redactar hallazgos específicos.
-2. Completar el informe técnico final con comparación cuantitativa frente al artículo y citas comprobadas.
-3. Prueba de la interfaz Streamlit en macOS: realizada manualmente por el equipo el 10 de noviembre, con Google Chrome y Streamlit en `localhost:8501`. Se verificaron las páginas Inicio, Simulador y Resultado (`docs/ESTADO_VERIFICACION.md` y `docs/PRUEBAS_APLICACION.txt`, sección 4). Las otras cinco páginas no formaron parte de esa prueba manual en macOS; su evidencia en navegador es la prueba del 10 de noviembre en Linux con Chromium (`docs/PRUEBAS_APLICACION.txt`, sección 2, y `docs/capturas/`). La prueba manual en macOS ocurrió antes de la última reorganización, que movió `interpretabilidad_importancias.csv` y `matriz_confusion_final.csv` a `resultados/`. El 11 de noviembre el equipo confirmó manualmente las ocho secciones (`docs/PRUEBAS_APLICACION.txt`, sección 5).
-4. Preparar la sustentación oral y una demostración funcional.
+1. Hallazgos específicos sobre matriz de confusión, importancias y dependencia parcial: redactados en el informe final (`reports/INFORME_FINAL_ML2.pdf`, secciones 5 a 7).
+2. Informe final: 5 páginas, centrado en explicar y justificar la metodología propia. No incluye una comparación cuantitativa con el artículo de referencia, porque no es un requisito y sus métricas no son comparables (otra población y etiquetas observadas).
+3. Interfaz Streamlit: el 10 de noviembre el equipo probó manualmente Inicio, Simulador y Resultado en macOS con `localhost:8501` (`docs/PRUEBAS_APLICACION.txt`, sección 4). El 11 de noviembre verificó manualmente las ocho secciones en la aplicación pública de Streamlit Community Cloud (sección 5). Las pruebas automatizadas se registran por separado (secciones 1, 3 y 6).
+4. Pendiente: sustentación oral y demostración funcional.

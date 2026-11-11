@@ -15,9 +15,9 @@ Estado al 11 de noviembre de 2026, después de reorganizar el proyecto en `data/
 - Una revisión anterior solo había llegado a revisión de código y compilación sintáctica, porque no se pudo instalar Streamlit en ese entorno.
 
 ## Revisión manual de las ocho secciones (11 de noviembre de 2026)
-- El equipo confirmó manualmente que funcionan las ocho secciones de Prisma: Inicio, Simulador, Resultado, Comparar perfiles, Predicción por lotes, Interpretabilidad, Comparación de modelos y Metodología (`docs/PRUEBAS_APLICACION.txt`, sección 5).
+- El equipo verificó manualmente las ocho secciones de Prisma en la aplicación pública de Streamlit Community Cloud (https://prisma-riesgo-crediticio.streamlit.app/): Inicio, Simulador, Resultado, Comparar perfiles, Predicción por lotes, Interpretabilidad, Comparación de modelos y Metodología. Según esa revisión, las ocho funcionan (`docs/PRUEBAS_APLICACION.txt`, sección 5).
 - Es una revisión manual reportada por el equipo, **no una prueba automatizada**. No se adjuntaron capturas ni registros de esta revisión, y el reporte no detalla los pasos ejecutados en cada sección.
-- La aplicación está publicada en https://prisma-riesgo-crediticio.streamlit.app/. Al preparar este registro no fue posible consultarla de forma automática (el sitio bloquea accesos automatizados), por lo que su funcionamiento se apoya en la revisión manual del equipo.
+- El funcionamiento de la aplicación pública se apoya en esta revisión manual. No existe una prueba automatizada contra el despliegue: pytest prueba el código del repositorio en local.
 - En esta revisión no se ejecutó el notebook ni se reentrenó el modelo.
 
 ## Ejecución del notebook
@@ -33,6 +33,6 @@ Estado al 11 de noviembre de 2026, después de reorganizar el proyecto en `data/
 - Matriz de confusión: recalculada sobre test estratificado, semilla 42.
 - Importancia por permutación: recalculada sobre test, 5 repeticiones (el notebook original configura 10; las cifras pueden variar). La versión con 10 repeticiones está en `resultados/reproduccion/importancia_permutacion_10rep.csv`.
 - Inferencia del modelo serializado: verificada en ejecución previa.
-- Informe: versión definitiva del 11 de noviembre en `reports/INFORME_FINAL_ML2.pdf`, de 5 páginas, con los nombres de Nicolás Barrera y Angie Loango, resumen integrado, gráficas, referencias externas y declaración de uso de IA. Sus cifras coinciden con `resultados/reproduccion/evaluacion_final.json`, `resultados/reproduccion/validacion_anidada.csv`, `resultados/reproduccion/ajuste_hiperparametros.csv` y `resultados/interpretabilidad_importancias.csv`.
+- Informe: versión definitiva del 11 de noviembre en `reports/INFORME_FINAL_ML2.pdf`, de 5 páginas. Su sección 8 distingue las 27 pruebas automatizadas de la verificación manual en Streamlit Community Cloud e incluye el enlace público. Contiene los nombres de Nicolás Barrera y Angie Loango, resumen integrado, gráficas, referencias externas y declaración de uso de IA. Sus cifras coinciden con `resultados/reproduccion/evaluacion_final.json`, `resultados/reproduccion/validacion_anidada.csv`, `resultados/reproduccion/ajuste_hiperparametros.csv` y `resultados/interpretabilidad_importancias.csv`.
 - Dependencia parcial: interpretada en la página 4 del informe (apartado "Interpretabilidad y producto").
 - Sustentación oral: pendiente.
